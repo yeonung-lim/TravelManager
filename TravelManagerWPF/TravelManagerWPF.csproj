@@ -6,6 +6,24 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
+        
+        <!-- 배포 설정 -->
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <PublishReadyToRun>true</PublishReadyToRun>
+        <PublishTrimmed>false</PublishTrimmed>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+        
+        <!-- 애플리케이션 정보 -->
+        <AssemblyTitle>Travel Manager</AssemblyTitle>
+        <AssemblyDescription>여행 관리 프로그램</AssemblyDescription>
+        <AssemblyCompany>TravelManager</AssemblyCompany>
+        <AssemblyProduct>Travel Manager WPF</AssemblyProduct>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <Copyright>Copyright © 2025</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,8 +32,9 @@
         <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
     </ItemGroup>
 
+    <!-- 폰트 파일 설정 - SingleFile에서 제외하고 별도 파일로 배포 -->
     <ItemGroup>
-        <None Include="fonts\**" CopyToOutputDirectory="Always" />
+        <Content Include="fonts\**" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" ExcludeFromSingleFile="true" />
     </ItemGroup>
 
 </Project>

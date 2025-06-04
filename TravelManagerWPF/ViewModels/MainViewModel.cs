@@ -1353,17 +1353,62 @@ namespace TravelManagerWPF.ViewModels
         {
             try
             {
-                var fontPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fonts", "CookieRun Regular.ttf");
-                if (File.Exists(fontPath))
+                // 여러 가능한 경로들을 시도
+                var possiblePaths = new[]
                 {
-                    return SKTypeface.FromFile(fontPath);
+                    // 1. 실행 파일과 같은 폴더의 fonts 디렉토리
+                    Path.Combine(Path.GetDirectoryName(Environment.ProcessPath ?? "") ?? "", "fonts", "CookieRun Regular.ttf"),
+                    
+                    // 2. AppDomain BaseDirectory의 fonts 디렉토리
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fonts", "CookieRun Regular.ttf"),
+                    
+                    // 3. 현재 작업 디렉토리의 fonts 디렉토리
+                    Path.Combine(Environment.CurrentDirectory, "fonts", "CookieRun Regular.ttf"),
+                    
+                    // 4. Assembly Location 기반 경로
+                    Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) ?? "", "fonts", "CookieRun Regular.ttf")
+                };
+
+                // 디버깅을 위한 경로 정보 출력 (릴리즈에서는 제거 가능)
+                System.Diagnostics.Debug.WriteLine($"ProcessPath: {Environment.ProcessPath}");
+                System.Diagnostics.Debug.WriteLine($"BaseDirectory: {AppDomain.CurrentDomain.BaseDirectory}");
+                System.Diagnostics.Debug.WriteLine($"CurrentDirectory: {Environment.CurrentDirectory}");
+                System.Diagnostics.Debug.WriteLine($"Assembly Location: {System.Reflection.Assembly.GetExecutingAssembly().Location}");
+
+                foreach (var fontPath in possiblePaths)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Trying font path: {fontPath}");
+                    
+                    if (!string.IsNullOrEmpty(fontPath) && File.Exists(fontPath))
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Font found at: {fontPath}");
+                        return SKTypeface.FromFile(fontPath);
+                    }
+                }
+
+                // 폰트를 찾지 못한 경우 추가 디버깅 정보
+                System.Diagnostics.Debug.WriteLine("Font file not found in any of the attempted paths");
+                
+                // fonts 디렉토리가 존재하는지 확인
+                var baseDir = Path.GetDirectoryName(Environment.ProcessPath ?? "") ?? "";
+                var fontsDir = Path.Combine(baseDir, "fonts");
+                if (Directory.Exists(fontsDir))
+                {
+                    System.Diagnostics.Debug.WriteLine($"Fonts directory exists: {fontsDir}");
+                    var files = Directory.GetFiles(fontsDir, "*.ttf");
+                    System.Diagnostics.Debug.WriteLine($"TTF files in fonts directory: {string.Join(", ", files)}");
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine($"Fonts directory does not exist: {fontsDir}");
                 }
                 
                 // 폰트 파일을 찾을 수 없는 경우 기본 폰트 사용
                 return SKTypeface.Default;
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"Error loading font: {ex.Message}");
                 return SKTypeface.Default;
             }
         }
