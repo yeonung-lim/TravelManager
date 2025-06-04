@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:TravelManagerWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!-- CookieRun Regular 폰트 등록 -->
+        <FontFamily x:Key="CookieRunRegular">pack://application:,,,/fonts/CookieRun Regular.ttf#CookieRun Regular</FontFamily>
+        
+        <!-- 전역 폰트 스타일 설정 -->
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="{StaticResource CookieRunRegular}"/>
+        </Style>
+        
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="{StaticResource CookieRunRegular}"/>
+        </Style>
+        
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="{StaticResource CookieRunRegular}"/>
+        </Style>
+        
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="FontFamily" Value="{StaticResource CookieRunRegular}"/>
+        </Style>
+        
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="FontFamily" Value="{StaticResource CookieRunRegular}"/>
+        </Style>
          
     </Application.Resources>
 </Application>

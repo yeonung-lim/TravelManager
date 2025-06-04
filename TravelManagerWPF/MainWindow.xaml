@@ -97,7 +97,7 @@
                                     <TextBlock Text="가격 (₩)"/>
                                     <TextBox Text="{Binding NewProduct.Price, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
-                                <StackPanel Width="150">
+                                <StackPanel>
                                     <TextBlock Text="시작 날짜"/>
                                     <DatePicker SelectedDate="{Binding NewProduct.StartDate, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
@@ -135,7 +135,7 @@
                                     <TextBlock Text="가격 (₩)"/>
                                     <TextBox Text="{Binding EditingProduct.Price, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
-                                <StackPanel Width="150">
+                                <StackPanel>
                                     <TextBlock Text="시작 날짜"/>
                                     <DatePicker SelectedDate="{Binding EditingProduct.StartDate, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
@@ -300,7 +300,7 @@
                                                 <TextBlock Text="일차"/>
                                                 <TextBox Text="{Binding NewDaySchedule.DayNumber, UpdateSourceTrigger=PropertyChanged}"/>
                                             </StackPanel>
-                                            <StackPanel Width="120">
+                                            <StackPanel>
                                                 <TextBlock Text="날짜"/>
                                                 <DatePicker SelectedDate="{Binding NewDaySchedule.Date, UpdateSourceTrigger=PropertyChanged}"/>
                                             </StackPanel>
@@ -325,7 +325,7 @@
                                                 <TextBlock Text="일차"/>
                                                 <TextBox Text="{Binding EditingDaySchedule.DayNumber, UpdateSourceTrigger=PropertyChanged}"/>
                                             </StackPanel>
-                                            <StackPanel Width="120">
+                                            <StackPanel>
                                                 <TextBlock Text="날짜"/>
                                                 <DatePicker SelectedDate="{Binding EditingDaySchedule.Date, UpdateSourceTrigger=PropertyChanged}"/>
                                             </StackPanel>
@@ -791,6 +791,7 @@
                                                 <lvc:CartesianChart Series="{Binding MonthlyRevenueSeries}"
                                                                     XAxes="{Binding MonthlyRevenueXAxes}"
                                                                     YAxes="{Binding MonthlyRevenueYAxes}"
+                                                                    TooltipTextPaint="{Binding TooltipTextPaint}"
                                                                     Height="300"
                                                                     xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"/>
                                             </StackPanel>
@@ -808,6 +809,7 @@
                                                 <lvc:CartesianChart Series="{Binding DestinationPopularitySeries}"
                                                                     XAxes="{Binding DestinationPopularityXAxes}"
                                                                     YAxes="{Binding DestinationPopularityYAxes}"
+                                                                    TooltipTextPaint="{Binding TooltipTextPaint}"
                                                                     Height="300"
                                                                     xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"/>
                                             </StackPanel>
@@ -823,6 +825,7 @@
                                                 <TextBlock Text="예약 상태별 분포" FontSize="16" FontWeight="Bold" 
                                                            HorizontalAlignment="Center" Margin="0,0,0,10"/>
                                                 <lvc:PieChart Series="{Binding ReservationStatusSeries}"
+                                                              TooltipTextPaint="{Binding TooltipTextPaint}"
                                                               Height="300"
                                                               xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"/>
                                             </StackPanel>

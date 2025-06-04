@@ -8,26 +8,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6565a572-3077-46ca-97d4-f04eb335dd68" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_wxqk0145_wpftmp.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_wxqk0145_wpftmp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_wxqk0145_wpftmp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_wxqk0145_wpftmp.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_wxqk0145_wpftmp.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_wxqk0145_wpftmp.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TravelManagerWPF/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TravelManagerWPF/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/Helpers/RelayCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/Helpers/RelayCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/TravelManagerWPF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/TravelManagerWPF.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/ViewModels/MainViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/bin/Debug/net8.0-windows/TravelManagerWPF.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/bin/Debug/net8.0-windows/TravelManagerWPF.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/bin/Debug/net8.0-windows/TravelManagerWPF.exe" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/bin/Debug/net8.0-windows/TravelManagerWPF.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/bin/Debug/net8.0-windows/TravelManagerWPF.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/bin/Debug/net8.0-windows/TravelManagerWPF.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/App.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/App.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/MainWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/MainWindow.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.g.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_MarkupCompile.lref" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/TravelManagerWPF_MarkupCompile.lref" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/ref/TravelManagerWPF.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/ref/TravelManagerWPF.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/refint/TravelManagerWPF.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/Debug/net8.0-windows/refint/TravelManagerWPF.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravelManagerWPF/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TravelManagerWPF/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshots/itinerary-management.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshots/itinerary-management.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshots/product-management.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshots/product-management.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +48,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e9439d551d31435aa3cc4da239d56ff1f61908/fc/22abaf01/UpdateSourceTrigger.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1247563c5683b9a3b31cbd27ce4aaa465b33354d16f90f15db672ba2f186bb8/BindingExpression.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/65eecefd921ad6dce4cc6bd9199456e50c4e8ac46198c5b4fa051c0e19a69/BindingExpressionBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7636c4b8f9776a5bbf9823bd11068a2712ba0fa2c9b83883e37f155ea1f9d/WeakEventManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/98b1adb3779ac728cd5b2742b677821659b656cd3c4454bbcae58f22daee42e/PropertyPathWorker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c5f4d338d48baab898bf7c91d35f4bef0a3cc69d9bdbd74fe236a8f224cb/ClrBindingWorker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c98c4c26354b89d76ffbddb774441bcc9c7ed3559b98dbd6fe39a56fc7eb18/ObservableCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d882146b4f265f10bcbec2663fce248db9ffec5fa1aeaf76e32a11ba5eafcd6/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -57,7 +71,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET 프로젝트.TravelManagerWPF.executor&quot;: &quot;Run&quot;,
+    &quot;.NET 프로젝트.TravelManagerWPF.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -107,7 +121,8 @@
       <workItem from="1748979735998" duration="59000" />
       <workItem from="1748979910623" duration="833000" />
       <workItem from="1749042371974" duration="9111000" />
-      <workItem from="1749056811011" duration="600000" />
+      <workItem from="1749056811011" duration="7131000" />
+      <workItem from="1749066581349" duration="2592000" />
     </task>
     <servers />
   </component>

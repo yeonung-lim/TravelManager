@@ -12,6 +12,8 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using LiveChartsCore.Defaults;
+using System.IO;
+using System.Reflection;
 
 namespace TravelManagerWPF.ViewModels
 {
@@ -24,6 +26,9 @@ namespace TravelManagerWPF.ViewModels
         private string _selectedDestinationFilter = "전체";
         private int _nextProductId = 1;
         private TravelProduct _newProduct = new();
+
+        // CookieRun 폰트를 위한 SKTypeface
+        private static readonly SKTypeface CookieRunTypeface = GetCookieRunTypeface();
 
         // 여행 일정 관련 프로퍼티들
         private ObservableCollection<Itinerary> _allItineraries = new();
@@ -58,6 +63,12 @@ namespace TravelManagerWPF.ViewModels
         private Axis[] _monthlyRevenueYAxes = Array.Empty<Axis>();
         private Axis[] _destinationPopularityXAxes = Array.Empty<Axis>();
         private Axis[] _destinationPopularityYAxes = Array.Empty<Axis>();
+
+        // 툴팁 폰트 설정
+        public SolidColorPaint TooltipTextPaint { get; } = new SolidColorPaint(SKColors.Black) 
+        { 
+            SKTypeface = CookieRunTypeface
+        };
 
         public ObservableCollection<TravelProduct> Products
         {
@@ -476,6 +487,11 @@ namespace TravelManagerWPF.ViewModels
         public MainViewModel()
         {
             _dataService = new DataService();
+            
+            // _allProducts의 CollectionChanged 이벤트 구독
+            _allProducts.CollectionChanged += (sender, e) => 
+                OnPropertyChanged(nameof(ProductsForReservation));
+                
             InitializeCommands();
             InitializeData();
             LoadDataAsync();
@@ -546,9 +562,19 @@ namespace TravelManagerWPF.ViewModels
         {
             try
             {
-                _allProducts = await _dataService.LoadProductsAsync();
+                var loadedProducts = await _dataService.LoadProductsAsync();
                 _allItineraries = await _dataService.LoadItinerariesAsync();
                 _allReservations = await _dataService.LoadReservationsAsync();
+                
+                // 기존 이벤트 구독 해제 후 새로운 컬렉션으로 교체
+                _allProducts.CollectionChanged -= (sender, e) => 
+                    OnPropertyChanged(nameof(ProductsForReservation));
+                    
+                _allProducts = loadedProducts;
+                
+                // 새로운 컬렉션에 이벤트 구독
+                _allProducts.CollectionChanged += (sender, e) => 
+                    OnPropertyChanged(nameof(ProductsForReservation));
                 
                 // 예약에 대한 상품 참조 설정
                 foreach (var reservation in _allReservations)
@@ -577,6 +603,9 @@ namespace TravelManagerWPF.ViewModels
                 FilterItineraries();
                 FilterReservations();
                 UpdateStatistics();
+                
+                // 초기 로드 완료 후 ProductsForReservation 알림
+                OnPropertyChanged(nameof(ProductsForReservation));
             }
             catch (Exception ex)
             {
@@ -622,7 +651,7 @@ namespace TravelManagerWPF.ViewModels
                 Description = NewProduct.Description
             };
 
-            _allProducts.Add(product);
+            _allProducts.Add(product);  // CollectionChanged 이벤트가 자동으로 발생
             UpdateDestinationOptions();
             FilterProducts();
 
@@ -658,7 +687,7 @@ namespace TravelManagerWPF.ViewModels
                 return;
             }
 
-            // 실제 제품 업데이트
+            // 실제 제품 업데이트 (속성 변경은 CollectionChanged를 발생시키지 않으므로 수동 알림 필요)
             SelectedProduct.Name = EditingProduct.Name;
             SelectedProduct.Destination = EditingProduct.Destination;
             SelectedProduct.Price = EditingProduct.Price;
@@ -669,6 +698,9 @@ namespace TravelManagerWPF.ViewModels
             UpdateDestinationOptions();
             FilterProducts();
             CancelEdit();
+            
+            // 기존 아이템의 속성 변경은 CollectionChanged가 발생하지 않으므로 수동 알림
+            OnPropertyChanged(nameof(ProductsForReservation));
         }
 
         private void DeleteProduct()
@@ -683,7 +715,7 @@ namespace TravelManagerWPF.ViewModels
 
             if (result == System.Windows.MessageBoxResult.Yes)
             {
-                _allProducts.Remove(SelectedProduct);
+                _allProducts.Remove(SelectedProduct);  // CollectionChanged 이벤트가 자동으로 발생
                 UpdateDestinationOptions();
                 FilterProducts();
                 SelectedProduct = null;
@@ -1185,7 +1217,9 @@ namespace TravelManagerWPF.ViewModels
                         Values = monthlyData.Select(x => x.Revenue).ToArray(),
                         Name = "월별 매출",
                         Fill = new SolidColorPaint(SKColors.SkyBlue),
-                        Stroke = new SolidColorPaint(SKColors.Blue) { StrokeThickness = 2 }
+                        Stroke = new SolidColorPaint(SKColors.Blue) { StrokeThickness = 2 },
+                        YToolTipLabelFormatter = value => $"₩{value.Model:N0}",
+                        DataLabelsPaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface }
                     }
                 };
 
@@ -1195,8 +1229,8 @@ namespace TravelManagerWPF.ViewModels
                     {
                         Labels = monthlyData.Select(x => x.Period).ToArray(),
                         Name = "월",
-                        NamePaint = new SolidColorPaint(SKColors.Black),
-                        LabelsPaint = new SolidColorPaint(SKColors.Gray),
+                        NamePaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface },
+                        LabelsPaint = new SolidColorPaint(SKColors.Gray) { SKTypeface = CookieRunTypeface },
                         TextSize = 12
                     }
                 };
@@ -1206,8 +1240,8 @@ namespace TravelManagerWPF.ViewModels
                     new Axis
                     {
                         Name = "매출 (원)",
-                        NamePaint = new SolidColorPaint(SKColors.Black),
-                        LabelsPaint = new SolidColorPaint(SKColors.Gray),
+                        NamePaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface },
+                        LabelsPaint = new SolidColorPaint(SKColors.Gray) { SKTypeface = CookieRunTypeface },
                         TextSize = 12,
                         Labeler = value => $"₩{value:N0}"
                     }
@@ -1234,7 +1268,9 @@ namespace TravelManagerWPF.ViewModels
                         Values = destinationData.Select(x => x.Count).ToArray(),
                         Name = "예약 건수",
                         Fill = new SolidColorPaint(SKColors.LightGreen),
-                        Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 2 }
+                        Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 2 },
+                        YToolTipLabelFormatter = value => $"{value.Model}건",
+                        DataLabelsPaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface }
                     }
                 };
 
@@ -1244,8 +1280,8 @@ namespace TravelManagerWPF.ViewModels
                     {
                         Labels = destinationData.Select(x => x.Destination).ToArray(),
                         Name = "목적지",
-                        NamePaint = new SolidColorPaint(SKColors.Black),
-                        LabelsPaint = new SolidColorPaint(SKColors.Gray),
+                        NamePaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface },
+                        LabelsPaint = new SolidColorPaint(SKColors.Gray) { SKTypeface = CookieRunTypeface },
                         TextSize = 12
                     }
                 };
@@ -1255,8 +1291,8 @@ namespace TravelManagerWPF.ViewModels
                     new Axis
                     {
                         Name = "예약 건수",
-                        NamePaint = new SolidColorPaint(SKColors.Black),
-                        LabelsPaint = new SolidColorPaint(SKColors.Gray),
+                        NamePaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface },
+                        LabelsPaint = new SolidColorPaint(SKColors.Gray) { SKTypeface = CookieRunTypeface },
                         TextSize = 12
                     }
                 };
@@ -1289,7 +1325,8 @@ namespace TravelManagerWPF.ViewModels
                     {
                         Values = new[] { data.Count },
                         Name = GetStatusDisplayName(data.Status),
-                        Fill = new SolidColorPaint(colors[index % colors.Length])
+                        Fill = new SolidColorPaint(colors[index % colors.Length]),
+                        DataLabelsPaint = new SolidColorPaint(SKColors.Black) { SKTypeface = CookieRunTypeface }
                     }).ToArray();
             }
         }
@@ -1310,6 +1347,25 @@ namespace TravelManagerWPF.ViewModels
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        private static SKTypeface GetCookieRunTypeface()
+        {
+            try
+            {
+                var fontPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fonts", "CookieRun Regular.ttf");
+                if (File.Exists(fontPath))
+                {
+                    return SKTypeface.FromFile(fontPath);
+                }
+                
+                // 폰트 파일을 찾을 수 없는 경우 기본 폰트 사용
+                return SKTypeface.Default;
+            }
+            catch
+            {
+                return SKTypeface.Default;
+            }
         }
     }
 }

@@ -63,3 +63,5 @@ C:\Users\woong\RiderProjects\TravelManager\TravelManagerWPF\bin\Debug\net8.0-win
 C:\Users\woong\RiderProjects\TravelManager\TravelManagerWPF\bin\Debug\net8.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\woong\RiderProjects\TravelManager\TravelManagerWPF\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\woong\RiderProjects\TravelManager\TravelManagerWPF\obj\Debug\net8.0-windows\TravelMa.EF072EBD.Up2Date
+C:\Users\woong\RiderProjects\TravelManager\TravelManagerWPF\bin\Debug\net8.0-windows\fonts\CookieRun Regular.ttf
+C:\Users\woong\RiderProjects\TravelManager\TravelManagerWPF\obj\Debug\net8.0-windows\App.baml
